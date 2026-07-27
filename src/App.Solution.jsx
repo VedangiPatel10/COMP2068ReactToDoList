@@ -39,5 +39,78 @@ const toggleComplete = (id) => {
       )
     );
   };
-  
-}
+  return (
+    <div className="container">
+ 
+      <h1>To-Do List</h1>
+ 
+ 
+      {/* Add Todo */}
+      <div className="input-section">
+ 
+        <input
+          type="text"
+          placeholder="Add a to-do..."
+          value={task}
+          onChange={(e) =>
+            setTask(e.target.value)
+          }
+          onKeyDown={(e) => {
+            if (e.key === "Enter") addTodo();
+          }}
+        />
+ 
+ 
+        <button onClick={addTodo}>
+          Add
+        </button>
+ 
+      </div>
+ 
+ 
+      <ul>
+ 
+        {todos.map((item) => (
+ 
+          <li key={item.id}>
+ 
+            <input
+              type="checkbox"
+              checked={item.completed}
+              onChange={() =>
+                toggleComplete(item.id)
+              }
+            />
+ 
+ 
+            <span
+              className={
+                item.completed
+                  ? "todo-text completed"
+                  : "todo-text"
+              }
+            >
+              {item.text}
+            </span>
+ 
+ 
+            <button
+              className="delete-btn"
+              onClick={() =>
+                deleteTodo(item.id)
+              }
+            >
+              Delete
+            </button>
+ 
+ 
+          </li>
+ 
+        ))}
+ 
+      </ul>
+ 
+ 
+    </div>
+  );
+};
