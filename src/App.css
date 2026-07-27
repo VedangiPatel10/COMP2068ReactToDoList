@@ -23,3 +23,30 @@ h1 {
   border: 1px solid #ccc;
   font-size: 14px;
 }
+
+.add-row button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add-row button:hover {
+  background-color: #1e40af;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-top: 30px;
+}
