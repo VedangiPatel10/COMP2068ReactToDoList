@@ -27,4 +27,17 @@ function App() {
     );
 };
 
+const toggleComplete = (id) => {
+    setTodos(
+      todos.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              completed: !item.completed
+            }
+          : item
+      )
+    );
+  };
+  
 }
