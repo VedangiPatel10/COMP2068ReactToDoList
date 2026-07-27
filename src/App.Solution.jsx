@@ -114,3 +114,4 @@ const toggleComplete = (id) => {
     </div>
   );
 };
+export default App;
