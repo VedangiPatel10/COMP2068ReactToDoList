@@ -33,6 +33,32 @@ function App() {
     <div className="container">
       <h1>To-Do List</h1>
 
+      <div className="input-section">
+        <input
+          type="text"
+          placeholder="Add a to-do..."
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") addTodo();
+          }}
+        />
+        <button onClick={addTodo}>Add</button>
+      </div>
+
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <span
+              style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+              onClick={() => toggleComplete(todo.id)}
+            >
+              {todo.test}
+            </span>
+            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
