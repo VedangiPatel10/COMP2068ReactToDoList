@@ -1,6 +1,24 @@
 import { useState } from 'react'
 import TodoItem from './components/TodoItem.jsx'
 import './App.css'
+function App() {
+
+  const [todos, setTodos] = useState([]);
+  const [text, setText] = useState("");
+
+  const handleAdd = () => {
+    if (text.trim() === "") return;
+
+    const newTodo = {
+      id: Date.now(),
+      text: text,
+      done: false
+    };
+
+    setTodos([...todos, newTodo]);
+    setText("");
+  }
+
 
 function App() {
 
@@ -22,3 +40,4 @@ function App() {
 }
 
 export default App
+}
