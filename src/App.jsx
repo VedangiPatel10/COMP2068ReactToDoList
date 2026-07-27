@@ -1,80 +1,73 @@
-import { useState } from 'react'
-import TodoItem from './components/TodoItem.jsx'
-import './App.css'
+import React from "react";
+
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  // ---------------------------------------------------------------
-  // STEP 2: Add state for the list of to-dos and the text input.
-  // Replace the line below with:
-  //   const [todos, setTodos] = useState([]);
-  //   const [text, setText] = useState("");
-  // ---------------------------------------------------------------
+  // const [task, setTask] = useState("");
   // const [todos, setTodos] = useState([]);
-  // const [text, setText] = useState("");
 
-  // ---------------------------------------------------------------
-  // STEP 3: Write a function that adds a new to-do to the array.
-  // Hint: use the spread operator, just like addAssignment() did
-  // in the demo app.
-  // ---------------------------------------------------------------
-  const handleAdd = () => {
-    // if (text.trim() === "") return;
-    // const newTodo = { id: Date.now(), text: text, done: false };
+  const addTodo = () => {
+    // if (task.trim() === "") return;
+
+    // const newTodo = {
+    //   id: Date.now(),
+    //   text: task,
+    //   completed: false
+    // };
+
     // setTodos([...todos, newTodo]);
-    // setText("");
-  }
+    // setTask("");
+  };
 
-  // ---------------------------------------------------------------
-  // STEP 5a: Write a function that flips "done" on the matching todo.
-  // Hint: this is the same pattern as toggleComplete() in the demo app.
-  // ---------------------------------------------------------------
-  const handleToggle = (id) => {
+  const deleteTodo = (id) => {
+  //   setTodos(todos.filter((item) => item.id !== id));
+ };
+
+  const toggleComplete = (id) => {
     // setTodos(
-    //   todos.map((t) => (t.id === id ? { ...t, done: !t.done } : t))
+    //   todos.map((item) =>
+    //     item.id === id ? { ...item, completed: !item.completed } : item
+    //   )
     // );
-  }
-
-  // ---------------------------------------------------------------
-  // STEP 5b: Write a function that removes the matching todo.
-  // Hint: this is the same pattern as deleteAssignment() in the demo app.
-  // ---------------------------------------------------------------
-  const handleDelete = (id) => {
-    // setTodos(todos.filter((t) => t.id !== id));
-  }
+  };
 
   return (
-    <div className="app">
+    <div className="container">
       <h1>To-Do List</h1>
 
-      <div className="add-row">
+      {/* <div className="input-section">
         <input
           type="text"
           placeholder="Add a to-do..."
-          // STEP 2 (continued): wire this input up to state
-          // value={text}
-          // onChange={(e) => setText(e.target.value)}
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") addTodo();
+          }}
         />
-        <button onClick={handleAdd}>Add</button>
-      </div>
+        <button onClick={addTodo}>Add</button>
+      </div> */}
 
-      {/*
-        STEP 4: Render the list here.
-        Replace this placeholder with:
-
-        <div className="todo-list">
-          {todos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              onToggle={handleToggle}
-              onDelete={handleDelete}
-            />
-          ))}
-        </div>
-      */}
-      <p className="empty-message">Your to-dos will appear here.</p>
+      <ul>
+        {todos.map((item) => (
+          // <li key={item.id}>
+          //   <input
+          //     type="checkbox"
+          //     checked={item.completed}
+          //     onChange={() => toggleComplete(item.id)}
+          //   />
+          //   <span className={item.completed ? "todo-text completed" : "todo-text"}>
+          //     {item.text}
+          //   </span>
+          //   <button className="delete-btn" onClick={() => deleteTodo(item.id)}>
+          //     Delete
+          //   </button>
+          // </li>
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
