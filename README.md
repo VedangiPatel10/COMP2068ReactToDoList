@@ -1,0 +1,1 @@
+This guided in-class exercise is part of our COMP 2068 React Fundamentals tutorial. It follows the same structure as the Assignment Tracker demo application, with all code contained in a single App.jsx file instead of separate component files. This allows you to practice the same React concepts used throughout the course.
